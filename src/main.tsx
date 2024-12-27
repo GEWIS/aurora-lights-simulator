@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthContextProvider from './context/AuthContext';
 import LightsContextProvider from './context/LightsContext';
 import { client } from './api';
-import SocketContextProvider from "./context/SocketContext";
+import SocketContextProvider from './context/SocketContext';
 
 client.setConfig({
   baseUrl: '/api',

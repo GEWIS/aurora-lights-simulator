@@ -6,10 +6,10 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState
-} from "react";
-import {io, Socket} from "socket.io-client";
-import {AuthContext} from "./AuthContext";
+  useState,
+} from 'react';
+import { io, Socket } from 'socket.io-client';
+import { AuthContext } from './AuthContext';
 
 export enum SocketConnectionState {
   DISCONNECTED = 'disconnected',
@@ -17,7 +17,10 @@ export enum SocketConnectionState {
   CONNECTED = 'connected',
 }
 
-function connectToSocket(setLightsSocket: Dispatch<SetStateAction<Socket | null>>, setConnection: Dispatch<SetStateAction<SocketConnectionState>>) {
+function connectToSocket(
+  setLightsSocket: Dispatch<SetStateAction<Socket | null>>,
+  setConnection: Dispatch<SetStateAction<SocketConnectionState>>,
+) {
   const lightsSocket = io('/lights', {
     path: '/socket.io/',
   });
@@ -76,13 +79,16 @@ export default function SocketContextProvider({ children }: PropsWithChildren) {
     return () => {
       lightsSocket.removeListener('dmx_packet', onDmxPacket);
       lightsSocket.removeListener('disconnect', onDisconnect);
-    }
+    };
   }, [lightsSocket]);
 
-  const context = useMemo((): ISocketContext => ({
-    currentDMXValues: dmxValues,
-    connection,
-  }), [connection, dmxValues]);
+  const context = useMemo(
+    (): ISocketContext => ({
+      currentDMXValues: dmxValues,
+      connection,
+    }),
+    [connection, dmxValues],
+  );
 
   return <SocketContext.Provider value={context}>{children}</SocketContext.Provider>;
 }

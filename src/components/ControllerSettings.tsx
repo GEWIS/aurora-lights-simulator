@@ -24,7 +24,7 @@ export default function ControllerSettings() {
             id="controller-api-key-submit"
             onClick={authContext.authenticate}
           >
-            Save
+            Log in
           </LoadingButton>
         </InputGroup>
       </Form>

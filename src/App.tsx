@@ -1,7 +1,7 @@
 import { Container, Navbar } from 'react-bootstrap';
 import ControllerSettings from './components/ControllerSettings';
 import ControllerDetails from './components/ControllerDetails';
-import LightsControllerOverview from "./components/LightsControllerOverview";
+import LightsControllerOverview from './components/LightsControllerOverview';
 
 function App() {
   return (
