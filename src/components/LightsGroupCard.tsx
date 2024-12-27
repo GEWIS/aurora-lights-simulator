@@ -26,7 +26,7 @@ export default function LightsGroupCard({ lightsGroup }: Props) {
           </div>
           <div className="d-flex flex-row gap-5">
             {lightsGroup.movingHeadWheels.map((p) => (
-              <LightsFixtureMovingHeadWheel key={p.id} movingHead={p.fixture} firstChannel={p.firstChannel} />
+              <LightsFixtureMovingHeadWheel key={p.id} movingHead={p.fixture} />
             ))}
           </div>
         </Card.Body>

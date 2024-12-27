@@ -6,7 +6,6 @@ import LightsFixtureMovingHead from './LightsFixtureMovingHead';
 
 interface Props {
   movingHead: MovingHeadWheelResponse;
-  firstChannel: number;
 }
 
 const Colors = {
@@ -20,7 +19,7 @@ const Colors = {
   lightblue: '#98e7ff',
 };
 
-export default function LightsFixtureMovingHeadWheel({ movingHead, firstChannel }: Props) {
+export default function LightsFixtureMovingHeadWheel({ movingHead }: Props) {
   const { currentDMXValues } = useContext(SocketContext);
 
   const masterDimValue = currentDMXValues[movingHead.masterDimChannel - 1] ?? 0;

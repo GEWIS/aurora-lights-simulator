@@ -25,14 +25,6 @@ export default function ControllerDetails() {
     );
   }
 
-  const getLightsGroups = () => {
-    return lightsGroupsContext.lightsGroups.map((g) => (
-      <p key={g.id}>
-        {g.name}: ({g.pars.length} pars, {g.movingHeadRgbs.length} MHs RGB, {g.movingHeadWheels.length} MHs Wheel)
-      </p>
-    ));
-  };
-
   const getSocketConnection = () => {
     switch (socketContext.connection) {
       case SocketConnectionState.CONNECTED:
@@ -60,12 +52,12 @@ export default function ControllerDetails() {
             <td>SocketIO</td>
             <td>{getSocketConnection()}</td>
           </tr>
-          <tr>
-            <td>Lights groups</td>
-            <td>{getLightsGroups()}</td>
-          </tr>
         </tbody>
       </Table>
+      <p className="fst-italic">
+        * NOTE: Fixtures might support more colors than RGB (i.e. Cold White, Warm White, UV, Amber). These colors
+        cannot be easily displayed within a web browser, so effects will look different on physical hardware.
+      </p>
     </div>
   );
 }
