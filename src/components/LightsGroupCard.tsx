@@ -1,7 +1,8 @@
 import { Card } from 'react-bootstrap';
 import { LightsGroupResponse } from '../api';
 import LightsFixturePar from './fixtures/LightsFixturePar';
-import LightsFixtureMovingHead from './fixtures/LightsFixtureMovingHead';
+import LightsFixtureMovingHeadRgb from './fixtures/LightsFixtureMovingHeadRgb';
+import LightsFixtureMovingHeadWheel from './fixtures/LightsFixtureMovingHeadWheel';
 
 interface Props {
   lightsGroup: LightsGroupResponse;
@@ -20,7 +21,12 @@ export default function LightsGroupCard({ lightsGroup }: Props) {
           </div>
           <div className="d-flex flex-row gap-5">
             {lightsGroup.movingHeadRgbs.map((p) => (
-              <LightsFixtureMovingHead key={p.id} movingHead={p.fixture} />
+              <LightsFixtureMovingHeadRgb key={p.id} movingHead={p.fixture} />
+            ))}
+          </div>
+          <div className="d-flex flex-row gap-5">
+            {lightsGroup.movingHeadWheels.map((p) => (
+              <LightsFixtureMovingHeadWheel key={p.id} movingHead={p.fixture} firstChannel={p.firstChannel} />
             ))}
           </div>
         </Card.Body>

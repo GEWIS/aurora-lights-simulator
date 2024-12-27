@@ -25,7 +25,6 @@ export default function AuthContextProvider({ children }: PropsWithChildren) {
   const [apiKey, setApiKey] = useState<string>('');
 
   const authenticate = useCallback(async () => {
-    console.log('Beep!');
     setLoading(true);
     if (apiKey != '') {
       const body: ApiKeyParameters = { key: apiKey };
@@ -45,7 +44,7 @@ export default function AuthContextProvider({ children }: PropsWithChildren) {
       setApiKey,
       authenticate,
     }),
-    [user, loading, apiKey],
+    [user, loading, apiKey, authenticate],
   );
 
   return <AuthContext.Provider value={context}>{children}</AuthContext.Provider>;
