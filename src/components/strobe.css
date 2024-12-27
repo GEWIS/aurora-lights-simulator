@@ -1,0 +1,60 @@
+/* Strobe animations */
+@-webkit-keyframes strobeAnimation {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  49% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    background-color: #000;
+  }
+  99% {
+    background-color: #000;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@-moz-keyframes strobeAnimation {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  49% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    background-color: #000;
+  }
+  99% {
+    background-color: #000;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes strobeAnimation {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  49% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    background-color: #000;
+  }
+  99% {
+    background-color: #000;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.strobe {
+  -webkit-animation: strobeAnimation 0.1s infinite;
+  -moz-animation: strobeAnimation 0.1s infinite;
+  animation: strobeAnimation 0.1s infinite;
+}

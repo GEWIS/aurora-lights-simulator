@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
-import { AuthContext } from '../context/AuthContext.tsx';
-import LoadingButton from './LoadingButton.tsx';
+import { AuthContext } from '../context/AuthContext';
+import LoadingButton from './LoadingButton';
 
 export default function ControllerSettings() {
   const authContext = useContext(AuthContext);

@@ -1,11 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App.tsx';
+import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AuthContextProvider from './context/AuthContext.tsx';
-import LightsContextProvider from './context/LightsContext.tsx';
+import AuthContextProvider from './context/AuthContext';
+import LightsContextProvider from './context/LightsContext';
 import { client } from './api';
-import SocketContextProvider from "./context/SocketContext.tsx";
+import SocketContextProvider from "./context/SocketContext";
 
 client.setConfig({
   baseUrl: '/api',

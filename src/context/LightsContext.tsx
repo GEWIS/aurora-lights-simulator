@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react';
 import { AuthUser, getControllerLightsGroups, LightsGroupResponse } from '../api';
-import { AuthContext } from './AuthContext.tsx';
+import { AuthContext } from './AuthContext';
 
 interface ILightsContext {
   lightsGroups: LightsGroupResponse[];

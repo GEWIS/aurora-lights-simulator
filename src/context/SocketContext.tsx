@@ -9,7 +9,7 @@ import {
   useState
 } from "react";
 import {io, Socket} from "socket.io-client";
-import {AuthContext} from "./AuthContext.tsx";
+import {AuthContext} from "./AuthContext";
 
 export enum SocketConnectionState {
   DISCONNECTED = 'disconnected',
@@ -61,7 +61,6 @@ export default function SocketContextProvider({ children }: PropsWithChildren) {
 
   const onDmxPacket = (data: number[]) => {
     setDmxValues(data);
-    console.log(data);
   };
 
   const onDisconnect = () => {
@@ -83,7 +82,7 @@ export default function SocketContextProvider({ children }: PropsWithChildren) {
   const context = useMemo((): ISocketContext => ({
     currentDMXValues: dmxValues,
     connection,
-  }), [connection]);
+  }), [connection, dmxValues]);
 
   return <SocketContext.Provider value={context}>{children}</SocketContext.Provider>;
 }

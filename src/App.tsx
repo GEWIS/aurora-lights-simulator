@@ -1,6 +1,7 @@
 import { Container, Navbar } from 'react-bootstrap';
-import ControllerSettings from './components/ControllerSettings.tsx';
-import ControllerDetails from './components/ControllerDetails.tsx';
+import ControllerSettings from './components/ControllerSettings';
+import ControllerDetails from './components/ControllerDetails';
+import LightsControllerOverview from "./components/LightsControllerOverview";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <Container>
         <ControllerSettings />
         <ControllerDetails />
+        <div>
+          <LightsControllerOverview />
+        </div>
       </Container>
     </>
   );
