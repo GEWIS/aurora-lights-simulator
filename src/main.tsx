@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthContextProvider from './context/AuthContext.tsx';
 import LightsContextProvider from './context/LightsContext.tsx';
 import { client } from './api';
+import SocketContextProvider from "./context/SocketContext.tsx";
 
 client.setConfig({
   baseUrl: '/api',
@@ -13,9 +14,11 @@ client.setConfig({
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AuthContextProvider>
-      <LightsContextProvider>
-        <App />
-      </LightsContextProvider>
+      <SocketContextProvider>
+        <LightsContextProvider>
+          <App />
+        </LightsContextProvider>
+      </SocketContextProvider>
     </AuthContextProvider>
   </StrictMode>,
 );
