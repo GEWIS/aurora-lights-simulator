@@ -1,13 +1,11 @@
 import { useContext } from 'react';
 import { Spinner, Table } from 'react-bootstrap';
 import { AuthContext } from '../context/AuthContext';
-import { LightsContext } from '../context/LightsContext';
 import { SocketConnectionState, SocketContext } from '../context/SocketContext';
 
 export default function ControllerDetails() {
   const authContext = useContext(AuthContext);
   const socketContext = useContext(SocketContext);
-  const lightsGroupsContext = useContext(LightsContext);
 
   if (authContext.loading) {
     return (
