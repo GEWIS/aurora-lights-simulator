@@ -11,14 +11,14 @@ export default function LightsFixturePar({ par }: Props) {
   const { currentDMXValues } = useContext(SocketContext);
 
   // DMX channels start at 1, so we need to subtract by 2 to start at 0
-  const masterDimValue = currentDMXValues[par.masterDimChannel - 1] ?? 0;
+  const masterDimValue = par.masterDimChannel ? currentDMXValues[par.masterDimChannel - 1] ?? 255 : 255;
   const dimFactor = masterDimValue / 255;
 
   const redValue = (currentDMXValues[par.redChannel - 1] ?? 0) * dimFactor;
   const greenValue = (currentDMXValues[par.greenChannel - 1] ?? 0) * dimFactor;
   const blueValue = (currentDMXValues[par.blueChannel - 1] ?? 0) * dimFactor;
 
-  const isStrobing = (currentDMXValues[par.shutterChannel - 1] ?? 0) === par.shutterChannelValues.strobe;
+  const isStrobing = par.shutterChannel ? (currentDMXValues[par.shutterChannel - 1] ?? 0) === par.shutterChannelValues.strobe : false;
   const isResetting =
     par.canReset && par.resetChannel ? (currentDMXValues[par.resetChannel - 1] ?? 0) === par.resetChannelValue : false;
 
@@ -30,6 +30,7 @@ export default function LightsFixturePar({ par }: Props) {
       <div
         className={`w-100 h-100 d-flex justify-content-center align-items-center fw-bold text-white ${isStrobing ? 'strobe' : ''}`}
         style={{ textShadow: '1px 1px 2px black' }}
+        title={`Fixture ${par.id} (red channel ${par.redChannel})`}
       >
         {isResetting ? 'R' : ''}
       </div>

@@ -10,7 +10,7 @@ interface Props {
 export default function LightsFixtureMovingHeadRgb({ movingHead }: Props) {
   const { currentDMXValues } = useContext(SocketContext);
 
-  const masterDimValue = currentDMXValues[movingHead.masterDimChannel - 1] ?? 0;
+  const masterDimValue = movingHead.masterDimChannel ? currentDMXValues[movingHead.masterDimChannel - 1] ?? 255 : 255;
   const dimFactor = masterDimValue / 255;
 
   const redValue = (currentDMXValues[movingHead.redChannel - 1] ?? 0) * dimFactor;

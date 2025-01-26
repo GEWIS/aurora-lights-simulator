@@ -25,8 +25,8 @@ export default function LightsFixtureMovingHeadWheel({ movingHead }: Props) {
   const masterDimValue = currentDMXValues[movingHead.masterDimChannel - 1] ?? 0;
   const dimFactor = masterDimValue / 255;
 
-  const colorValue = currentDMXValues[movingHead.colorWheelChannel - 1];
-  const colorName = movingHead.colorChannelValues.find((c) => c.channelValue === colorValue);
+  const colorValue = currentDMXValues[movingHead.wheelColorChannel - 1];
+  const colorName = movingHead.wheelColorChannelValues.find((c) => c.channelValue === colorValue);
   const hex = colorName ? Colors[colorName?.color] : undefined;
   const cssFilterResult = hexToCSSFilter(hex ?? '#000000');
 
