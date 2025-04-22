@@ -13,7 +13,8 @@ interface Props {
 }
 
 function componentToHex(c: number): string {
-  return c.toString(16).padStart(2, '0');
+  const cInt = Math.round(c);
+  return cInt.toString(16).padStart(2, '0');
 }
 
 export default function LightsFixtureMovingHead({ movingHead, redValue, greenValue, blueValue }: Props) {
